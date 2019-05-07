@@ -14,20 +14,14 @@
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme">
 		<activity
-			android:name=".presentation.MainActivity"
-			android:theme="@style/Theme.AppCompat.NoActionBar">
+			android:name=".presentation.screens.main.MainActivity"
+			android:theme="@style/AppTheme.Inverted.NoActionBar.Fullscreen">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-
-		<activity
-			android:name=".presentation.screens.MapsActivity"
-			android:theme="@style/Theme.AppCompat.Fullscreen" />
-
-		<activity android:name=".presentation.screens.home.HomeActivity" />
 
 		<meta-data
 			android:name="com.google.android.geo.API_KEY"

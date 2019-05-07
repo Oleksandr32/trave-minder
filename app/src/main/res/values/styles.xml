@@ -6,11 +6,61 @@
 		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 		<item name="colorAccent">@color/colorAccent</item>
+
+		<item name="android:textColor">@color/colorText</item>
+
+		<!-- New MaterialComponents attributes. -->
+		<item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1</item>
+		<item name="textAppearanceHeadline2">@style/TextAppearance.MaterialComponents.Headline2</item>
+		<item name="textAppearanceHeadline3">@style/TextAppearance.MaterialComponents.Headline3</item>
+		<item name="textAppearanceHeadline4">@style/TextAppearance.MaterialComponents.Headline4</item>
+		<item name="textAppearanceHeadline5">@style/TextAppearance.MaterialComponents.Headline5</item>
+		<item name="textAppearanceHeadline6">@style/TextAppearance.MaterialComponents.Headline6</item>
+		<item name="textAppearanceSubtitle1">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+		<item name="textAppearanceSubtitle2">@style/TextAppearance.MaterialComponents.Subtitle2</item>
+		<item name="textAppearanceSubhead">@style/TextAppearance.AppCompat.Subhead</item>
+		<item name="textAppearanceBody1">@style/TextAppearance.MaterialComponents.Body1</item>
+		<item name="textAppearanceBody2">@style/TextAppearance.MaterialComponents.Body2</item>
+		<item name="textAppearanceCaption">@style/TextAppearance.MaterialComponents.Caption</item>
+		<item name="textAppearanceButton">@style/TextAppearance.MaterialComponents.Button</item>
+		<item name="textAppearanceOverline">@style/TextAppearance.MaterialComponents.Overline</item>
 	</style>
 
-	<style name="Theme.AppCompat.Fullscreen" parent="@style/Theme.AppCompat.NoActionBar">
+	<style name="AppTheme.Inverted" parent="AppTheme">
+		<item name="android:textColor">@color/colorTextInverted</item>
+	</style>
+
+	<style name="AppTheme.NoActionBar" parent="AppTheme">
+		<item name="windowActionBar">false</item>
+		<item name="windowNoTitle">true</item>
+	</style>
+
+	<style name="AppTheme.Inverted.NoActionBar" parent="AppTheme.Inverted">
+		<item name="windowActionBar">false</item>
+		<item name="windowNoTitle">true</item>
+	</style>
+
+	<style name="AppTheme.NoActionBar.Fullscreen" parent="AppTheme.NoActionBar">
 		<item name="android:windowFullscreen">true</item>
 		<item name="android:windowContentOverlay">@null</item>
+	</style>
+
+	<style name="AppTheme.Inverted.NoActionBar.Fullscreen" parent="AppTheme.Inverted.NoActionBar">
+		<item name="android:windowFullscreen">true</item>
+		<item name="android:windowContentOverlay">@null</item>
+	</style>
+
+	<style name="RoundButton">
+		<item name="android:background">@drawable/background_button_round_primary</item>
+		<item name="android:clickable">true</item>
+		<item name="android:elevation">4dp</item>
+		<item name="android:focusable">true</item>
+		<item name="android:foreground">@drawable/selectable_round_light</item>
+		<item name="android:gravity">center</item>
+		<item name="android:minHeight">56dp</item>
+		<item name="android:stateListAnimator">@animator/selector_raise</item>
+		<item name="android:textAppearance">?textAppearanceBody2</item>
+		<item name="android:textStyle">bold</item>
 	</style>
 
 </resources>

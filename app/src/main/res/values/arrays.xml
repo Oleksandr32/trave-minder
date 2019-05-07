@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<array name="app_features_titles">
+		<item>Title 1</item>
+		<item>Title 2</item>
+	</array>
+	<array name="app_features_descriptions">
+		<item>Description 1</item>
+		<item>Description 2</item>
+	</array>
+	<array name="app_features_pics">
+		<item>@drawable/travel</item>
+		<item>@drawable/travel</item>
+	</array>
+</resources>
