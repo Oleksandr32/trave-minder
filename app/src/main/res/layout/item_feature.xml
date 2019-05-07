@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<data>
+
+		<variable
+			name="feature"
+			type="com.oleksandrlysun.traveminder.presentation.screens.main.FeatureItem" />
+	</data>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:gravity="center"
+		android:orientation="vertical"
+		android:padding="24dp">
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="16dp"
+			android:src="@{feature.picture}" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="4dp"
+			android:text="@{feature.title}"
+			android:textAppearance="?textAppearanceSubhead" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@{feature.description}"
+			android:textAppearance="?textAppearanceBody2"
+			android:textColor="?android:textColorSecondary" />
+	</LinearLayout>
+</layout>
