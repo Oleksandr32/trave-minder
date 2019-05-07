@@ -1,4 +1,4 @@
-package com.oleksandrlysun.traveminder.presentation.screens
+package com.oleksandrlysun.traveminder.presentation.screens.maps
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,6 @@ import com.oleksandrlysun.traveminder.R
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.SupportMapFragment
-import com.oleksandrlysun.traveminder.extensions.findFragmentByType
 
 
 class MapsFragment : Fragment(), OnMapReadyCallback {
