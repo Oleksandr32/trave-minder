@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TraveMinder</string>
 	<string name="btn_continue">Continue</string>
+	<string name="menu_home">Home</string>
+	<string name="menu_camera">Camera</string>
+	<string name="menu_notes">Notes</string>
 </resources>

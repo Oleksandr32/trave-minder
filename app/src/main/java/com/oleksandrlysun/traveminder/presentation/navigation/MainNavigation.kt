@@ -1,8 +1,8 @@
 package com.oleksandrlysun.traveminder.presentation.navigation
 
-interface MyNavigation {
+interface MainNavigation {
 
 	fun navigateUp(): Boolean
 
-	fun welcomeToHome()
+	fun welcomeToTabs()
 }

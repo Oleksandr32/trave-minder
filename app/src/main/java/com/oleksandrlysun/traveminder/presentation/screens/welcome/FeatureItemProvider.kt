@@ -2,7 +2,9 @@ package com.oleksandrlysun.traveminder.presentation.screens.welcome
 
 import android.content.Context
 import com.oleksandrlysun.traveminder.R
+import com.oleksandrlysun.traveminder.presentation.di.scope.FragmentScope
 
+@FragmentScope
 class FeatureItemProvider(private val context: Context) {
 
 	fun provide(): List<FeatureItem> {
@@ -10,11 +12,11 @@ class FeatureItemProvider(private val context: Context) {
 		val descriptions = context.resources.obtainTypedArray(R.array.app_features_descriptions)
 		val pics = context.resources.obtainTypedArray(R.array.app_features_pics)
 		val featureItems = (0 until titles.length()).map { index ->
-            FeatureItem(
-                titles.getString(index),
-                descriptions.getString(index),
-                pics.getDrawable(index)
-            )
+			FeatureItem(
+					titles.getString(index),
+					descriptions.getString(index),
+					pics.getDrawable(index)
+			)
 		}
 		titles.recycle()
 		descriptions.recycle()
