@@ -1,6 +1,5 @@
 package com.oleksandrlysun.traveminder.presentation.screens.tabs
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,16 +19,12 @@ class TabsFragment : Fragment() {
 
 	private val bottomNavigation by lazy { view?.findViewById<BottomNavigationView>(R.id.bottom_navigation) }
 
-	override fun onAttach(context: Context) {
-		AndroidSupportInjection.inject(this)
-		super.onAttach(context)
-	}
-
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		return inflater.inflate(R.layout.fragment_tabs, container, false)
 	}
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		AndroidSupportInjection.inject(this)
 		super.onViewCreated(view, savedInstanceState)
 		bottomNavigation?.setupWithNavController(navigation.getNavController())
 	}
