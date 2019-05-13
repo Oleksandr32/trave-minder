@@ -1,4 +1,4 @@
-package com.oleksandrlysun.traveminder.extensions
+package com.oleksandrlysun.traveminder.presentation.extensions
 
 import androidx.appcompat.app.AppCompatActivity
 

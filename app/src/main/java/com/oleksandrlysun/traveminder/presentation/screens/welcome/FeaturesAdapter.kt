@@ -1,4 +1,4 @@
-package com.oleksandrlysun.traveminder.presentation.screens.main
+package com.oleksandrlysun.traveminder.presentation.screens.welcome
 
 import android.view.LayoutInflater
 import android.view.View

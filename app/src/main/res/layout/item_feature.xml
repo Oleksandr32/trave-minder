@@ -5,7 +5,7 @@
 
 		<variable
 			name="feature"
-			type="com.oleksandrlysun.traveminder.presentation.screens.main.FeatureItem" />
+			type="com.oleksandrlysun.traveminder.presentation.screens.welcome.FeatureItem" />
 	</data>
 
 	<LinearLayout
