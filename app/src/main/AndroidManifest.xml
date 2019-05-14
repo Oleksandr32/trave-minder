@@ -3,7 +3,9 @@
 	package="com.oleksandrlysun.traveminder">
 
 	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 	<application
 		android:name=".TraveMinderApplication"
@@ -14,7 +16,7 @@
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme">
 		<activity
-			android:name=".presentation.screens.main.MainActivity"
+			android:name=".presentation.screens.MainActivity"
 			android:theme="@style/AppTheme.Inverted.NoActionBar.Fullscreen">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />

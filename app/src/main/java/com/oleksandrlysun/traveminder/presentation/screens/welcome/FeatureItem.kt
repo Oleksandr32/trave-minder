@@ -1,4 +1,4 @@
-package com.oleksandrlysun.traveminder.presentation.screens.main
+package com.oleksandrlysun.traveminder.presentation.screens.welcome
 
 import android.graphics.drawable.Drawable
 
