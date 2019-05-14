@@ -1,7 +1,7 @@
 package com.oleksandrlysun.traveminder.presentation.extensions
 
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 
-inline fun <reified T> AppCompatActivity.findFragmentByType(): T? {
-	return supportFragmentManager.fragments.find { it is T } as T?
+inline fun <reified T> Fragment.findFragmentByType(): T? {
+	return childFragmentManager.fragments.find { it is T } as T?
 }

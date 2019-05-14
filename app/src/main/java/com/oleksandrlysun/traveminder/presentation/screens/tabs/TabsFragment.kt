@@ -17,8 +17,6 @@ class TabsFragment : Fragment() {
 	@Inject
 	lateinit var navigation: TabsNavigation
 
-	private val bottomNavigation by lazy { view?.findViewById<BottomNavigationView>(R.id.bottom_navigation) }
-
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		return inflater.inflate(R.layout.fragment_tabs, container, false)
 	}
@@ -26,6 +24,6 @@ class TabsFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		AndroidSupportInjection.inject(this)
 		super.onViewCreated(view, savedInstanceState)
-		bottomNavigation?.setupWithNavController(navigation.getNavController())
+		view.findViewById<BottomNavigationView>(R.id.bottom_navigation).setupWithNavController(navigation.getNavController())
 	}
 }
