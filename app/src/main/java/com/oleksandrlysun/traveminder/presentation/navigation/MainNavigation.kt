@@ -5,4 +5,6 @@ interface MainNavigation {
 	fun navigateUp(): Boolean
 
 	fun welcomeToTabs()
+
+	fun tabsToMaps()
 }

@@ -9,8 +9,10 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.oleksandrlysun.traveminder.R
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.LatLng
+import com.oleksandrlysun.traveminder.presentation.extensions.findFragmentByType
 
 
 class MapsFragment : Fragment(), OnMapReadyCallback {
@@ -18,8 +20,9 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 	private lateinit var map: GoogleMap
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-		// findFragmentByType<SupportMapFragment>()?.getMapAsync(this)
-		return inflater.inflate(R.layout.fragment_maps, container, false)
+		val view = inflater.inflate(R.layout.fragment_maps, container, false)
+		findFragmentByType<SupportMapFragment>()?.getMapAsync(this)
+		return view
 	}
 
 	override fun onMapReady(googleMap: GoogleMap) {

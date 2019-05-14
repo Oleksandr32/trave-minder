@@ -13,4 +13,8 @@ class MainNavigationImpl(private val navController: NavController) : MainNavigat
 	override fun welcomeToTabs() {
 		navController.navigate(R.id.action_welcomeFragment_to_tabsFragment)
 	}
+
+	override fun tabsToMaps() {
+		navController.navigate(R.id.action_tabsFragment_to_mapsFragment)
+	}
 }
