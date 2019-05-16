@@ -6,7 +6,7 @@
 		android:title="@string/menu_home" />
 
 	<item
-		android:id="@+id/cameraFragment"
+		android:id="@+id/cameraNotesFragment"
 		android:icon="@drawable/ic_camera"
 		android:title="@string/menu_camera" />
 

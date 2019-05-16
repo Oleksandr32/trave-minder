@@ -22,10 +22,26 @@
 		<action
 			android:id="@+id/action_tabsFragment_to_mapsFragment"
 			app:destination="@id/mapsFragment" />
+		<action
+			android:id="@+id/action_tabsFragment_to_cameraFragment"
+			app:destination="@id/cameraFragment" />
 	</fragment>
 	<fragment
 		android:id="@+id/mapsFragment"
 		android:name="com.oleksandrlysun.traveminder.presentation.screens.maps.MapsFragment"
 		android:label="MapsFragment"
 		tools:layout="@layout/fragment_maps" />
+	<fragment
+		android:id="@+id/permissionFragment"
+		android:name="com.oleksandrlysun.traveminder.presentation.screens.permission.PermissionFragment"
+		android:label="PermissionFragment" />
+
+	<action
+		android:id="@+id/action_to_permissionFragment"
+		app:destination="@id/permissionFragment" />
+
+	<fragment
+		android:id="@+id/cameraFragment"
+		android:name="com.oleksandrlysun.traveminder.presentation.screens.camera.CameraFragment"
+		android:label="CameraFragment" />
 </navigation>

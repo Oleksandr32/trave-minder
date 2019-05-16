@@ -7,4 +7,8 @@ interface MainNavigation {
 	fun welcomeToTabs()
 
 	fun tabsToMaps()
+
+	fun tabsToCamera()
+
+	fun toPermission()
 }

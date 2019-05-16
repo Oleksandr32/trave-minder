@@ -7,7 +7,4 @@ class TabsNavigationImpl(private val navController: NavController) : TabsNavigat
 
 	override fun getNavController() = navController
 
-	override fun tabsToNotes() {
-		TODO()
-	}
 }
