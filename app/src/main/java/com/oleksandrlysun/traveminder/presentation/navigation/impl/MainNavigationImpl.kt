@@ -17,4 +17,12 @@ class MainNavigationImpl(private val navController: NavController) : MainNavigat
 	override fun tabsToMaps() {
 		navController.navigate(R.id.action_tabsFragment_to_mapsFragment)
 	}
+
+	override fun tabsToCamera() {
+		navController.navigate(R.id.action_tabsFragment_to_cameraFragment)
+	}
+
+	override fun toPermission() {
+		navController.navigate(R.id.action_to_permissionFragment)
+	}
 }

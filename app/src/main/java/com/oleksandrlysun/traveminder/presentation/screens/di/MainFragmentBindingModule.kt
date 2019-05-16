@@ -1,9 +1,13 @@
 package com.oleksandrlysun.traveminder.presentation.screens.di
 
 import com.oleksandrlysun.traveminder.presentation.di.scope.FragmentScope
+import com.oleksandrlysun.traveminder.presentation.screens.camera.CameraFragment
+import com.oleksandrlysun.traveminder.presentation.screens.camera.di.CameraModule
+import com.oleksandrlysun.traveminder.presentation.screens.cameranotes.CameraNotesFragment
 import com.oleksandrlysun.traveminder.presentation.screens.tabs.TabsFragment
 import com.oleksandrlysun.traveminder.presentation.screens.home.HomeFragment
 import com.oleksandrlysun.traveminder.presentation.screens.home.di.HomeModule
+import com.oleksandrlysun.traveminder.presentation.screens.permission.PermissionFragment
 import com.oleksandrlysun.traveminder.presentation.screens.tabs.di.TabsModule
 import com.oleksandrlysun.traveminder.presentation.screens.welcome.WelcomeFragment
 import com.oleksandrlysun.traveminder.presentation.screens.welcome.di.WelcomeModule
@@ -24,4 +28,16 @@ interface MainFragmentBindingModule {
 	@FragmentScope
 	@ContributesAndroidInjector(modules = [HomeModule::class])
 	fun contributeHomeFragmentInjector(): HomeFragment
+
+	@FragmentScope
+	@ContributesAndroidInjector
+	fun contributePermissionFragmentInjector(): PermissionFragment
+
+	@FragmentScope
+	@ContributesAndroidInjector
+	fun contributeCameraNotesFragmentInjector(): CameraNotesFragment
+
+	@FragmentScope
+	@ContributesAndroidInjector(modules = [CameraModule::class])
+	fun contributeCameraFragmentInjector(): CameraFragment
 }

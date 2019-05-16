@@ -1,4 +1,4 @@
-package com.oleksandrlysun.traveminder.presentation.di
+package com.oleksandrlysun.traveminder.di
 
 import android.app.Application
 import android.content.Context

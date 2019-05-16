@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">TraveMinder</string>
+	<string name="app_name">TraveMinder</string>
 	<string name="btn_continue">Continue</string>
 	<string name="menu_home">Home</string>
 	<string name="menu_camera">Camera</string>
 	<string name="menu_notes">Notes</string>
+	<string name="btn_allow">Allow</string>
+	<string name="btn_deny">Deny</string>
+	<string name="camera_permission_title">Allow access to camera</string>
+	<string name="camera_permission_description">We would like to access your camera to take photos.</string>
 </resources>

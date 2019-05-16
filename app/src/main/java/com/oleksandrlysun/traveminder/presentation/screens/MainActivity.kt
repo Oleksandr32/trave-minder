@@ -13,23 +13,34 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
-    @Inject
-    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
+	@Inject
+	lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
-    @Inject
-    lateinit var navigation: MainNavigation
+	@Inject
+	lateinit var navigation: MainNavigation
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        AndroidInjection.inject(this)
-    }
+	private var permissionListener: ((Int, Array<out String>, IntArray) -> Unit)? = null
 
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
-        return fragmentInjector
-    }
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+		setContentView(R.layout.activity_main)
+		AndroidInjection.inject(this)
+	}
 
-    override fun onSupportNavigateUp(): Boolean {
-        return navigation.navigateUp()
-    }
+	override fun supportFragmentInjector(): AndroidInjector<Fragment> {
+		return fragmentInjector
+	}
+
+	override fun onSupportNavigateUp(): Boolean {
+		return navigation.navigateUp()
+	}
+
+	override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+		permissionListener?.invoke(requestCode, permissions, grantResults)
+	}
+
+	fun setPermissionListener(listener: (Int, Array<out String>, IntArray) -> Unit) {
+		permissionListener = listener
+	}
 }
