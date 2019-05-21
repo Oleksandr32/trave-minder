@@ -3,6 +3,7 @@ package com.oleksandrlysun.traveminder.presentation.screens.camera
 import com.oleksandrlysun.traveminder.presentation.di.scope.FragmentScope
 import com.oleksandrlysun.traveminder.presentation.navigation.MainNavigation
 import com.oleksandrlysun.traveminder.utils.PermissionManager
+import java.io.File
 import javax.inject.Inject
 
 @FragmentScope
@@ -18,6 +19,22 @@ class CameraPresenter @Inject constructor(
 
 	fun onCameraPermissionDenied() {
 		navigation.navigateUp()
+	}
+
+	fun capturePicture() {
+		view.setCaptureButtonEnabled(false)
+		view.takePicture()
+	}
+
+	fun applyPicture() {
+	}
+
+	fun cancelPicture() {
+	}
+
+	fun onPictureTaken(imageBytes: ByteArray) {
+		view.showPicture(imageBytes)
+		view.showConfirmPhotoView()
 	}
 
 	private fun checkCameraPermission() {

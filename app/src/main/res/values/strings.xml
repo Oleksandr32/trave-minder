@@ -8,4 +8,5 @@
 	<string name="btn_deny">Deny</string>
 	<string name="camera_permission_title">Allow access to camera</string>
 	<string name="camera_permission_description">We would like to access your camera to take photos.</string>
+	<string name="camera_capture_failed">Photo capture failed.</string>
 </resources>
