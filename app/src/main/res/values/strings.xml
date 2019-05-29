@@ -8,4 +8,9 @@
 	<string name="btn_deny">Deny</string>
 	<string name="camera_permission_title">Allow access to camera</string>
 	<string name="camera_permission_description">We would like to access your camera to take photos.</string>
+	<string name="camera_capture_failed">Photo capture failed.</string>
+	<string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+	<string name="btn_save">Save</string>
+	<string name="hint_description">Description</string>
+	<string name="hint_title">Title</string>
 </resources>

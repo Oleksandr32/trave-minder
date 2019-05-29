@@ -68,4 +68,8 @@
 		<item name="itemIconTint">@color/bottom_navigation_colors</item>
 		<item name="itemTextColor">@color/bottom_navigation_colors</item>
 	</style>
+
+	<style name="TextAppearance.ExpandedTitle" parent="AppTheme">
+		<item name="android:textColor">@android:color/transparent</item>
+	</style>
 </resources>

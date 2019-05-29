@@ -8,23 +8,42 @@ import javax.inject.Inject
 @FragmentScope
 class CameraPresenter @Inject constructor(
 		private val view: CameraView,
+		private val state: CameraFlowState,
 		private val navigation: MainNavigation,
 		private val permissionManager: PermissionManager
 ) {
 
-	init {
-		checkCameraPermission()
+	fun onViewCreated() {
+		if (permissionManager.isCameraPermissionGranted()) {
+			view.startCamera()
+		} else {
+			navigation.toPermission()
+		}
 	}
 
 	fun onCameraPermissionDenied() {
 		navigation.navigateUp()
 	}
 
-	private fun checkCameraPermission() {
-		if (permissionManager.isCameraPermissionGranted()) {
-			view.startCamera()
-		} else {
-			navigation.toPermission()
-		}
+	fun capturePicture() {
+		view.takePicture()
+		view.setCaptureButtonEnabled(false)
+		view.setLoading(true)
+	}
+
+	fun applyPicture() {
+		navigation.cameraToCreateCameraNote()
+	}
+
+	fun cancelPicture() {
+		view.hideConfirmPhotoView()
+		view.setCaptureButtonEnabled(true)
+	}
+
+	fun onPictureTaken(imageBytes: ByteArray) {
+		state.picture = imageBytes
+		view.setLoading(false)
+		view.showConfirmPhotoView()
+		view.showPicture(imageBytes)
 	}
 }

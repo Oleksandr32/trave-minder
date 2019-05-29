@@ -34,7 +34,8 @@
 	<fragment
 		android:id="@+id/permissionFragment"
 		android:name="com.oleksandrlysun.traveminder.presentation.screens.permission.PermissionFragment"
-		android:label="PermissionFragment" />
+		android:label="PermissionFragment"
+		tools:layout="@layout/fragment_permission" />
 
 	<action
 		android:id="@+id/action_to_permissionFragment"
@@ -43,5 +44,16 @@
 	<fragment
 		android:id="@+id/cameraFragment"
 		android:name="com.oleksandrlysun.traveminder.presentation.screens.camera.CameraFragment"
-		android:label="CameraFragment" />
+		android:label="CameraFragment"
+		tools:layout="@layout/fragment_camera">
+
+		<action
+			android:id="@+id/action_cameraFragment_to_createCameraNoteFragment"
+			app:destination="@id/createCameraNoteFragment" />
+	</fragment>
+	<fragment
+		android:id="@+id/createCameraNoteFragment"
+		android:name="com.oleksandrlysun.traveminder.presentation.screens.camera.CreateCameraNoteFragment"
+		android:label="CameraTetsFragment"
+		tools:layout="@layout/fragment_create_camera_note" />
 </navigation>

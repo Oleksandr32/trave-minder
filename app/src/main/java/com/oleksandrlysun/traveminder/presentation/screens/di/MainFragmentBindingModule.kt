@@ -2,6 +2,7 @@ package com.oleksandrlysun.traveminder.presentation.screens.di
 
 import com.oleksandrlysun.traveminder.presentation.di.scope.FragmentScope
 import com.oleksandrlysun.traveminder.presentation.screens.camera.CameraFragment
+import com.oleksandrlysun.traveminder.presentation.screens.camera.CreateCameraNoteFragment
 import com.oleksandrlysun.traveminder.presentation.screens.camera.di.CameraModule
 import com.oleksandrlysun.traveminder.presentation.screens.cameranotes.CameraNotesFragment
 import com.oleksandrlysun.traveminder.presentation.screens.tabs.TabsFragment
@@ -40,4 +41,8 @@ interface MainFragmentBindingModule {
 	@FragmentScope
 	@ContributesAndroidInjector(modules = [CameraModule::class])
 	fun contributeCameraFragmentInjector(): CameraFragment
+
+	@FragmentScope
+	@ContributesAndroidInjector(modules = [CameraModule::class])
+	fun contributeCreateCameraNoteFragmentInjector(): CreateCameraNoteFragment
 }
