@@ -6,6 +6,8 @@ interface CameraView {
 
 	fun setCaptureButtonEnabled(enabled: Boolean)
 
+	fun setLoading(loading: Boolean)
+
 	fun takePicture()
 
 	fun showPicture(imageBytes: ByteArray)

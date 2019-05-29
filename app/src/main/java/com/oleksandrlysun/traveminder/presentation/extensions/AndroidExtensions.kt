@@ -1,5 +1,6 @@
 package com.oleksandrlysun.traveminder.presentation.extensions
 
+import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
@@ -10,4 +11,8 @@ inline fun <reified T> Fragment.findFragmentByType(): T? {
 
 fun Fragment.showToast(@StringRes messageResId: Int, duration: Int = Toast.LENGTH_SHORT) {
 	Toast.makeText(requireContext(), messageResId, duration).show()
+}
+
+fun Fragment.setFullscreen(isFullscreen: Boolean) {
+	activity?.window?.run { if (isFullscreen) addFlags(FLAG_FULLSCREEN) else clearFlags(FLAG_FULLSCREEN) }
 }

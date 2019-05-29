@@ -60,4 +60,19 @@
 			android:translationX="-64dp"
 			android:visibility="gone" />
 	</RelativeLayout>
+
+	<LinearLayout
+		android:id="@+id/loading"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/colorHighlightLight"
+		android:gravity="center"
+		android:orientation="vertical"
+		android:visibility="gone">
+
+		<ProgressBar
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:indeterminateTint="@color/colorBackground" />
+	</LinearLayout>
 </FrameLayout>

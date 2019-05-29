@@ -35,3 +35,7 @@ fun View.animateAndHide(@AnimatorRes animatorResId: Int): Animator {
 	animator.doOnEnd { visibility = View.GONE }
 	return animator
 }
+
+var View.visibleOrGone: Boolean
+	set(value) { visibility = if (value) View.VISIBLE else View.GONE }
+	get() = visibility == View.VISIBLE
