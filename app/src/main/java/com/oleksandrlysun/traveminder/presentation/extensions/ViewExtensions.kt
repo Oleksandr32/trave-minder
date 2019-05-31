@@ -2,10 +2,12 @@ package com.oleksandrlysun.traveminder.presentation.extensions
 
 import android.animation.Animator
 import android.animation.AnimatorInflater
+import android.content.Context
 import android.view.View
 import androidx.annotation.AnimatorRes
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
+import android.view.inputmethod.InputMethodManager
 
 
 /**
@@ -39,3 +41,14 @@ fun View.animateAndHide(@AnimatorRes animatorResId: Int): Animator {
 var View.visibleOrGone: Boolean
 	set(value) { visibility = if (value) View.VISIBLE else View.GONE }
 	get() = visibility == View.VISIBLE
+
+fun View.showSoftInput() {
+	requestFocus()
+	val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+	imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+}
+
+fun View.hideSoftInput() {
+	val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+	imm.hideSoftInputFromWindow(windowToken, 0)
+}

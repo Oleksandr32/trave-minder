@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<com.google.android.flexbox.FlexboxLayout
+		android:id="@+id/container_tags"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_vertical"
+		android:layout_marginBottom="@dimen/tag_view_margin"
+		app:flexWrap="wrap">
+
+		<RelativeLayout
+			android:id="@+id/btn_manage_tags"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="?selectableItemBackground"
+			android:clickable="true"
+			android:focusable="true">
+
+			<ImageView
+				android:id="@+id/manage_icon"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentStart="true"
+				android:layout_alignParentTop="true"
+				android:src="@drawable/ic_add_8dp" />
+
+			<TextView
+				android:id="@+id/manage_label"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_toEndOf="@id/manage_icon"
+				android:text="@string/btn_manage_tags" />
+		</RelativeLayout>
+	</com.google.android.flexbox.FlexboxLayout>
+
+	<LinearLayout
+		android:id="@+id/container_manage"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@android:color/transparent"
+		android:gravity="center_vertical"
+		android:orientation="horizontal"
+		android:visibility="gone">
+
+		<AutoCompleteTextView
+			android:id="@+id/et_tag"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:background="@drawable/background_frame"
+			android:imeOptions="actionNext"
+			android:inputType="text"
+			android:maxLines="1"
+			android:textAppearance="?textAppearanceBody2" />
+
+		<ImageView
+			android:id="@+id/btn_done"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/tag_view_margin"
+			android:layout_marginEnd="@dimen/tag_view_margin"
+			android:background="?selectableItemBackgroundBorderless"
+			android:clickable="true"
+			android:focusable="true"
+			android:src="@drawable/ic_check" />
+
+		<ImageView
+			android:id="@+id/btn_cancel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/tag_view_margin"
+			android:layout_marginEnd="@dimen/tag_view_margin"
+			android:background="?selectableItemBackgroundBorderless"
+			android:clickable="true"
+			android:focusable="true"
+			android:src="@drawable/ic_cancel" />
+	</LinearLayout>
+</merge>

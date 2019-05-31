@@ -13,4 +13,10 @@
 	<string name="btn_save">Save</string>
 	<string name="hint_description">Description</string>
 	<string name="hint_title">Title</string>
+	<string name="tag_education">education</string>
+	<string name="tag_sport">sport</string>
+	<string name="tag_travel">travel</string>
+	<string name="tag_work">work</string>
+	<string name="btn_manage_tags">Manage tags</string>
+	<string name="create_note">Create Note</string>
 </resources>

@@ -12,4 +12,10 @@
 		<item>@drawable/travel</item>
 		<item>@drawable/travel</item>
 	</array>
+	<string-array name="note_tags">
+		<item>@string/tag_education</item>
+		<item>@string/tag_sport</item>
+		<item>@string/tag_travel</item>
+		<item>@string/tag_work</item>
+	</string-array>
 </resources>
