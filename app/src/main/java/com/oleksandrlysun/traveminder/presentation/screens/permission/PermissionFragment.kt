@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.oleksandrlysun.traveminder.R
+import com.oleksandrlysun.traveminder.presentation.extensions.mainActivity
 import com.oleksandrlysun.traveminder.presentation.navigation.MainNavigation
 import com.oleksandrlysun.traveminder.presentation.screens.MainActivity
 import com.oleksandrlysun.traveminder.utils.PermissionManager
@@ -40,7 +41,7 @@ class PermissionFragment : Fragment() {
 		view.findViewById<TextView>(R.id.btn_allow)
 				.setOnClickListener { permissionManager.requestCameraPermission(RC_CAMERA_PERMISSION) }
 
-		(activity as MainActivity).setPermissionListener { requestCode, _, grantResults ->
+		mainActivity?.setPermissionListener { requestCode, _, grantResults ->
 			val granted = permissionManager.checkPermissionsResult(requestCode, RC_CAMERA_PERMISSION, grantResults)
 			setRequestResult(granted)
 		}

@@ -4,11 +4,12 @@ import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.oleksandrlysun.traveminder.R
+import com.oleksandrlysun.traveminder.presentation.extensions.mainActivity
 import com.oleksandrlysun.traveminder.presentation.extensions.rotate
 import com.oleksandrlysun.traveminder.presentation.extensions.toBitmap
-import com.oleksandrlysun.traveminder.presentation.screens.MainActivity
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -18,7 +19,6 @@ class CreateCameraNoteFragment : Fragment() {
 	lateinit var state: CameraFlowState
 
 	private val picturePreview by lazy { view!!.findViewById<ImageView>(R.id.picture_preview) }
-
 
 	override fun onAttach(context: Context) {
 		AndroidSupportInjection.inject(this)
@@ -31,7 +31,13 @@ class CreateCameraNoteFragment : Fragment() {
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
+		setupToolbar()
 		setState()
+	}
+
+	private fun setupToolbar() {
+		mainActivity?.setSupportActionBar(view?.findViewById(R.id.toolbar))
+		mainActivity?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
 	}
 
 	private fun setState() {

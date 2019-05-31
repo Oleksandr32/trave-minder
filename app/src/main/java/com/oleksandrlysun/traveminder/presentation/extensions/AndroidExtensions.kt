@@ -4,6 +4,10 @@ import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
+import com.oleksandrlysun.traveminder.presentation.screens.MainActivity
+
+val Fragment.mainActivity: MainActivity?
+	get() = activity as? MainActivity
 
 inline fun <reified T> Fragment.findFragmentByType(): T? {
 	return childFragmentManager.fragments.find { it is T } as T?
