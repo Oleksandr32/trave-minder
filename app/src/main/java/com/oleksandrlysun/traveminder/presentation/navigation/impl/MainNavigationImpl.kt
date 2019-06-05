@@ -26,6 +26,10 @@ class MainNavigationImpl(private val navController: NavController) : MainNavigat
 		navController.navigate(R.id.action_cameraFragment_to_createCameraNoteFragment)
 	}
 
+	override fun backToTabs() {
+		navController.popBackStack(R.id.tabsFragment, false)
+	}
+
 	override fun toPermission() {
 		navController.navigate(R.id.action_to_permissionFragment)
 	}

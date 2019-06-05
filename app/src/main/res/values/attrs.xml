@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<attr name="textAppearanceSubhead" format="reference" />
+	<declare-styleable name="TagsView">
+		<attr name="controlColor" format="color" />
+	</declare-styleable>
+	<declare-styleable name="TagView">
+		<attr name="name" format="string" />
+	</declare-styleable>
 </resources>
