@@ -11,10 +11,10 @@
 		tools:layout="@layout/fragment_home" />
 
 	<fragment
-		android:id="@+id/cameraFragment"
-		android:name="com.oleksandrlysun.traveminder.presentation.screens.home.HomeFragment"
-		android:label="HomeFragment"
-		tools:layout="@layout/fragment_home" />
+		android:id="@+id/cameraNotesFragment"
+		android:name="com.oleksandrlysun.traveminder.presentation.screens.cameranotes.CameraNotesFragment"
+		android:label="CameraNotesFragment"
+		tools:layout="@layout/fragment_camera_notes" />
 
 	<fragment
 		android:id="@+id/notesFragment"

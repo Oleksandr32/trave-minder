@@ -6,4 +6,9 @@
 	<color name="colorText">#263238</color>
 	<color name="colorTextInverted">#ffffff</color>
 	<color name="colorHighlightLight">#80ffffff</color>
+	<color name="colorHighlightDark">#F1F8FF</color>
+	<color name="colorBackground">#ffffff</color>
+	<color name="colorLink">#42a5f4</color>
+	<color name="colorDivider">#B5D8FD</color>
+	<color name="colorTextPrimary">#23282D</color>
 </resources>

@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.oleksandrlysun.traveminder.R
+import com.oleksandrlysun.traveminder.presentation.extensions.setFullscreen
 import com.oleksandrlysun.traveminder.presentation.navigation.MainNavigation
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
@@ -27,6 +29,7 @@ class WelcomeFragment : Fragment() {
 	}
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+		setFullscreen(true)
 		return inflater.inflate(R.layout.fragment_welcome, container, false)
 	}
 
@@ -34,5 +37,10 @@ class WelcomeFragment : Fragment() {
 		super.onViewCreated(view, savedInstanceState)
 		view.findViewById<ViewPager>(R.id.pager).adapter = FeaturesAdapter(featuresProvider.provide())
 		view.findViewById<TextView>(R.id.btn_continue).setOnClickListener { navigation.welcomeToTabs() }
+	}
+
+	override fun onDestroyView() {
+		setFullscreen(false)
+		super.onDestroyView()
 	}
 }

@@ -8,6 +8,8 @@
 		<item name="colorAccent">@color/colorAccent</item>
 
 		<item name="android:textColor">@color/colorText</item>
+		<item name="android:datePickerDialogTheme">@style/AppTheme.PickerDialog</item>
+		<item name="android:timePickerDialogTheme">@style/AppTheme.PickerDialog</item>
 
 		<!-- New MaterialComponents attributes. -->
 		<item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1</item>
@@ -40,6 +42,10 @@
 		<item name="windowNoTitle">true</item>
 	</style>
 
+	<style name="AppTheme.Inverted.ActionBar" parent="AppTheme.Inverted">
+		<item name="colorControlNormal">@color/colorTextInverted</item>
+	</style>
+
 	<style name="AppTheme.NoActionBar.Fullscreen" parent="AppTheme.NoActionBar">
 		<item name="android:windowFullscreen">true</item>
 		<item name="android:windowContentOverlay">@null</item>
@@ -67,5 +73,33 @@
 		<item name="android:background">?colorAccent</item>
 		<item name="itemIconTint">@color/bottom_navigation_colors</item>
 		<item name="itemTextColor">@color/bottom_navigation_colors</item>
+	</style>
+
+	<style name="TextAppearance.ExpandedTitle" parent="AppTheme">
+		<item name="android:textColor">@android:color/transparent</item>
+	</style>
+
+	<style name="TextAppearance.CollapsedTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+		<item name="android:textColor">@color/colorTextInverted</item>
+	</style>
+
+	<style name="AppTheme.TagView" parent="AppTheme">
+		<item name="android:textAppearance">?textAppearanceBody1</item>
+		<item name="android:textColor">@color/colorTextPrimary</item>
+		<item name="android:layout_marginStart">@dimen/tag_view_margin</item>
+		<item name="android:layout_marginEnd">@dimen/tag_view_margin</item>
+		<item name="android:layout_marginBottom">2dp</item>
+		<item name="android:layout_gravity">center</item>
+	</style>
+
+	<style name="AppTheme.PickerDialog" parent="Theme.MaterialComponents.Light.Dialog">
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+		<item name="android:buttonBarButtonStyle">@style/AppTheme.PickerDialog.ButtonStyle</item>
+	</style>
+
+	<style name="AppTheme.PickerDialog.ButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+		<item name="android:textColor">?colorPrimary</item>
 	</style>
 </resources>

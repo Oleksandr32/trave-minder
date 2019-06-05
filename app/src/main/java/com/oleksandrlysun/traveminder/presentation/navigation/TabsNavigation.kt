@@ -5,6 +5,4 @@ import androidx.navigation.NavController
 interface TabsNavigation {
 
 	fun getNavController(): NavController
-
-	fun tabsToNotes()
 }

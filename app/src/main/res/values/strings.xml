@@ -1,7 +1,28 @@
 <resources>
-    <string name="app_name">TraveMinder</string>
+	<string name="app_name">TraveMinder</string>
 	<string name="btn_continue">Continue</string>
 	<string name="menu_home">Home</string>
 	<string name="menu_camera">Camera</string>
 	<string name="menu_notes">Notes</string>
+	<string name="btn_allow">Allow</string>
+	<string name="btn_deny">Deny</string>
+	<string name="camera_permission_title">Allow access to camera</string>
+	<string name="camera_permission_description">We would like to access your camera to take photos.</string>
+	<string name="camera_capture_failed">Photo capture failed.</string>
+	<string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+	<string name="btn_save">Save</string>
+	<string name="hint_date">Date</string>
+	<string name="hint_alarm_date">Alarm Date</string>
+	<string name="hint_description">Description</string>
+	<string name="hint_title">Title</string>
+	<string name="tag_education">education</string>
+	<string name="tag_sport">sport</string>
+	<string name="tag_travel">travel</string>
+	<string name="tag_work">work</string>
+	<string name="btn_manage_tags">Manage tags</string>
+	<string name="btn_add_date">Add date</string>
+	<string name="btn_add_alarm_date">Add alarm date</string>
+	<string name="create_note">Create Note</string>
+	<string name="title_error">Title is required</string>
+	<string name="alarm_date_format">dd MMMM yyyy hh:mm</string>
 </resources>
