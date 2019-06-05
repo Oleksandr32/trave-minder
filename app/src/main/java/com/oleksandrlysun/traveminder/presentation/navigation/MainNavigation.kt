@@ -12,5 +12,7 @@ interface MainNavigation {
 
 	fun cameraToCreateCameraNote()
 
+	fun backToTabs()
+
 	fun toPermission()
 }

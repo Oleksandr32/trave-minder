@@ -5,6 +5,7 @@
 	android:layout_height="match_parent">
 
 	<com.google.android.material.appbar.AppBarLayout
+		android:id="@+id/app_bar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content">
 
@@ -27,9 +28,9 @@
 
 			<androidx.appcompat.widget.Toolbar
 				android:id="@+id/toolbar"
-				android:theme="@style/AppTheme.Inverted"
 				android:layout_width="match_parent"
 				android:layout_height="?android:attr/actionBarSize"
+				android:theme="@style/AppTheme.Inverted.ActionBar"
 				app:layout_collapseMode="pin" />
 		</com.google.android.material.appbar.CollapsingToolbarLayout>
 	</com.google.android.material.appbar.AppBarLayout>
@@ -48,13 +49,18 @@
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
 				android:orientation="vertical"
-				android:padding="16dp">
+				android:paddingStart="16dp"
+				android:paddingEnd="16dp">
 
 				<com.google.android.material.textfield.TextInputLayout
+					android:id="@+id/container_title"
 					android:layout_width="match_parent"
-					android:layout_height="wrap_content">
+					android:layout_height="wrap_content"
+					android:layout_marginTop="16dp"
+					app:errorEnabled="true">
 
 					<com.google.android.material.textfield.TextInputEditText
+						android:id="@+id/et_title"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:hint="@string/hint_title" />
@@ -63,7 +69,7 @@
 				<com.oleksandrlysun.traveminder.presentation.views.TagsView
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="16dp"
+					android:layout_marginTop="8dp"
 					android:layout_marginBottom="16dp"
 					android:orientation="vertical"
 					app:controlColor="@color/colorLink" />
@@ -71,6 +77,7 @@
 				<com.google.android.material.textfield.TextInputLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
+					android:layout_marginBottom="16dp"
 					app:counterEnabled="true"
 					app:counterMaxLength="255">
 
@@ -80,11 +87,102 @@
 						android:hint="@string/hint_description"
 						android:maxLength="255" />
 				</com.google.android.material.textfield.TextInputLayout>
+
+				<RelativeLayout
+					android:id="@+id/btn_add_date"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="8dp"
+					android:background="?selectableItemBackground"
+					android:clickable="true"
+					android:focusable="true">
+
+					<ImageView
+						android:id="@+id/icon_add_date_field"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_alignParentStart="true"
+						android:layout_alignParentTop="true"
+						android:src="@drawable/ic_add_8dp"
+						android:tint="@color/colorLink" />
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_toEndOf="@id/icon_add_date_field"
+						android:text="@string/btn_add_date"
+						android:textColor="@color/colorLink" />
+				</RelativeLayout>
+
+				<com.google.android.material.textfield.TextInputLayout
+					android:id="@+id/container_date"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:layout_marginBottom="16dp"
+					android:visibility="gone">
+
+					<com.google.android.material.textfield.TextInputEditText
+						android:id="@+id/et_date"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:cursorVisible="false"
+						android:focusable="false"
+						android:focusableInTouchMode="false"
+						android:hint="@string/hint_date" />
+				</com.google.android.material.textfield.TextInputLayout>
+
+				<RelativeLayout
+					android:id="@+id/btn_add_alarm_date"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="8dp"
+					android:background="?selectableItemBackground"
+					android:clickable="true"
+					android:focusable="true">
+
+					<ImageView
+						android:id="@+id/icon_add_alarm_date_field"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_alignParentStart="true"
+						android:layout_alignParentTop="true"
+						android:src="@drawable/ic_add_8dp"
+						android:tint="@color/colorLink" />
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_alignParentTop="true"
+						android:layout_marginTop="0dp"
+						android:layout_toEndOf="@id/icon_add_alarm_date_field"
+						android:text="@string/btn_add_alarm_date"
+						android:textColor="@color/colorLink" />
+				</RelativeLayout>
+
+				<com.google.android.material.textfield.TextInputLayout
+					android:id="@+id/container_alarm"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:layout_marginBottom="16dp"
+					android:visibility="gone">
+
+					<com.google.android.material.textfield.TextInputEditText
+						android:id="@+id/et_alarm_date"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:cursorVisible="false"
+						android:focusable="false"
+						android:focusableInTouchMode="false"
+						android:hint="@string/hint_alarm_date" />
+				</com.google.android.material.textfield.TextInputLayout>
 			</LinearLayout>
 		</androidx.cardview.widget.CardView>
 	</androidx.core.widget.NestedScrollView>
 
 	<FrameLayout
+		android:id="@+id/btn_save"
 		android:layout_width="match_parent"
 		android:layout_height="56dp"
 		android:layout_gravity="bottom"
@@ -95,9 +193,9 @@
 
 		<TextView
 			style="@style/AppTheme.Inverted"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="center"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:gravity="center"
 			android:text="@string/btn_save"
 			android:textAppearance="?textAppearanceBody1" />
 	</FrameLayout>
