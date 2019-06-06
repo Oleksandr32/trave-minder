@@ -9,7 +9,7 @@ import java.util.UUID
 @RealmClass
 open class RealmCameraNote(@PrimaryKey
                            var id: String = UUID.randomUUID().toString(),
-                           var title: String,
+                           var title: String = "",
                            var tags: RealmList<String>? = null,
                            var description: String? = null,
                            var date: String? = null,
