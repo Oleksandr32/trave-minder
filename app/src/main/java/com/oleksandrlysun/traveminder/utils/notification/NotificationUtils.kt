@@ -1,6 +1,6 @@
 package com.oleksandrlysun.traveminder.utils.notification
 
-import com.oleksandrlysun.traveminder.services.notification.NotificationRequest
+import com.oleksandrlysun.traveminder.receivers.notification.NotificationRequest
 
 interface NotificationUtils {
 

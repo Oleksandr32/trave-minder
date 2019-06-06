@@ -9,6 +9,8 @@ import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import dagger.android.HasBroadcastReceiverInjector
+import io.realm.Realm
+import io.realm.RealmConfiguration
 import javax.inject.Inject
 
 class TraveMinderApplication : Application(), HasActivityInjector, HasBroadcastReceiverInjector {
@@ -21,10 +23,24 @@ class TraveMinderApplication : Application(), HasActivityInjector, HasBroadcastR
 
 	override fun onCreate() {
 		super.onCreate()
+		initDagger()
+		initRealm()
+	}
+
+	private fun initDagger() {
 		DaggerApplicationComponent.builder()
 				.applicationModule(ApplicationModule(this))
 				.build()
 				.inject(this)
+	}
+
+	private fun initRealm() {
+		Realm.init(this)
+
+		val config = RealmConfiguration.Builder()
+				.deleteRealmIfMigrationNeeded()
+				.build()
+		Realm.setDefaultConfiguration(config)
 	}
 
 	override fun activityInjector(): AndroidInjector<Activity> {
