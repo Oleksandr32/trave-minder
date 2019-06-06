@@ -1,4 +1,4 @@
-package com.oleksandrlysun.traveminder.services.notification
+package com.oleksandrlysun.traveminder.receivers.notification
 
 import android.os.Parcel
 import android.os.Parcelable

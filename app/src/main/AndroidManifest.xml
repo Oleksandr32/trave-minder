@@ -27,7 +27,7 @@
 		</activity>
 
 		<receiver
-			android:name=".services.notification.NotificationPublisher"
+			android:name=".receivers.notification.NotificationPublisher"
 			android:exported="false" />
 
 		<meta-data

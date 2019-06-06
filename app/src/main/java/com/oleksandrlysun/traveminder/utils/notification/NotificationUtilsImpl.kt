@@ -7,8 +7,8 @@ import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.oleksandrlysun.traveminder.R
-import com.oleksandrlysun.traveminder.services.notification.NotificationPublisher
-import com.oleksandrlysun.traveminder.services.notification.NotificationRequest
+import com.oleksandrlysun.traveminder.receivers.notification.NotificationPublisher
+import com.oleksandrlysun.traveminder.receivers.notification.NotificationRequest
 import com.oleksandrlysun.traveminder.utils.ParcelableUtils
 import javax.inject.Inject
 

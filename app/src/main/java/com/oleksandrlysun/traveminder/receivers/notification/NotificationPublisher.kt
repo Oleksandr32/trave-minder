@@ -1,4 +1,4 @@
-package com.oleksandrlysun.traveminder.services.notification
+package com.oleksandrlysun.traveminder.receivers.notification
 
 import android.content.BroadcastReceiver
 import android.content.Context
