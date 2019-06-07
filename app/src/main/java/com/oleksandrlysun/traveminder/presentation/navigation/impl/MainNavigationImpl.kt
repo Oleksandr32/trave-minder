@@ -3,6 +3,8 @@ package com.oleksandrlysun.traveminder.presentation.navigation.impl
 import androidx.navigation.NavController
 import com.oleksandrlysun.traveminder.R
 import com.oleksandrlysun.traveminder.presentation.navigation.MainNavigation
+import com.oleksandrlysun.traveminder.presentation.screens.camera.CameraFragmentDirections
+import com.oleksandrlysun.traveminder.presentation.screens.camera.CreateCameraNoteFragmentDirections
 
 class MainNavigationImpl(private val navController: NavController) : MainNavigation {
 
@@ -22,8 +24,9 @@ class MainNavigationImpl(private val navController: NavController) : MainNavigat
 		navController.navigate(R.id.action_tabsFragment_to_cameraFragment)
 	}
 
-	override fun cameraToCreateCameraNote() {
-		navController.navigate(R.id.action_cameraFragment_to_createCameraNoteFragment)
+	override fun cameraToCreateCameraNote(picturePath: String) {
+		val action = CameraFragmentDirections.actionCameraFragmentToCreateCameraNoteFragment(picturePath)
+		navController.navigate(action)
 	}
 
 	override fun backToTabs() {

@@ -11,21 +11,23 @@ class CameraNoteMapper : EntityMapper<RealmCameraNote, CameraNote> {
 
 	override fun mapToEntity(realmModel: RealmCameraNote): CameraNote {
 		return CameraNote(
+				realmModel.id,
 				realmModel.title,
 				realmModel.tags?.toList(),
 				realmModel.description,
 				realmModel.date?.let { DateUtil.parseDate(it) },
-				File(realmModel.picturePath)
+				realmModel.picturePath
 		)
 	}
 
 	override fun mapToRealmModel(entity: CameraNote): RealmCameraNote {
 		return RealmCameraNote(
-				title = entity.title,
-				tags = entity.tags?.toRealmList(),
-				description = entity.description,
-				date = entity.date?.let { DateUtil.formatDate(it) },
-				picturePath = entity.picture.absolutePath
+				entity.id,
+				entity.title,
+				entity.tags?.toRealmList(),
+				entity.description,
+				entity.date?.let { DateUtil.formatDate(it) },
+				entity.picturePath
 		)
 	}
 }

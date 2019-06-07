@@ -28,6 +28,9 @@ class TagsView @JvmOverloads constructor(context: Context,
 
 	var controlColor: Int = 0
 
+	val tagsName: List<String>
+		get() = getAllTagView().mapNotNull { it.name }.toList()
+
 	init {
 		LayoutInflater.from(context).inflate(R.layout.view_tags, this, true)
 		attrs?.let {
@@ -97,14 +100,16 @@ class TagsView @JvmOverloads constructor(context: Context,
 	}
 
 	private fun toggleTagsDeletable() {
-		tagsContainer.children
-				.filterIsInstance<TagView>()
-				.forEach { it.toggleDeletable() }
+		getAllTagView().forEach {
+			it.toggleDeletable()
+		}
 	}
 
 	private fun isTagExist(name: String): Boolean {
-		return tagsContainer.children
-				.filterIsInstance<TagView>()
-				.any { it.name == name }
+		return getAllTagView().any {
+			it.name == name
+		}
 	}
+
+	private fun getAllTagView() = tagsContainer.children.filterIsInstance<TagView>()
 }

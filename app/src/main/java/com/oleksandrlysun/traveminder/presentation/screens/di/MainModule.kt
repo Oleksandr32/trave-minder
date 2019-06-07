@@ -6,7 +6,6 @@ import com.oleksandrlysun.traveminder.presentation.di.scope.ActivityScope
 import com.oleksandrlysun.traveminder.presentation.navigation.MainNavigation
 import com.oleksandrlysun.traveminder.presentation.navigation.impl.MainNavigationImpl
 import com.oleksandrlysun.traveminder.presentation.screens.MainActivity
-import com.oleksandrlysun.traveminder.presentation.screens.FragmentStateHolder
 import com.oleksandrlysun.traveminder.presentation.screens.permission.PermissionResultLiveEvent
 import dagger.Module
 import dagger.Provides
@@ -29,10 +28,5 @@ abstract class MainModule {
 		@ActivityScope
 		@Provides
 		fun providePermissionResultLiveEvent() = PermissionResultLiveEvent()
-
-		@JvmStatic
-		@ActivityScope
-		@Provides
-		fun provideStateHolder() = FragmentStateHolder()
 	}
 }

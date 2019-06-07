@@ -1,5 +1,7 @@
 package com.oleksandrlysun.traveminder.presentation.screens.camera
 
+import java.io.File
+
 interface CameraView {
 
 	fun startCamera()
@@ -10,7 +12,7 @@ interface CameraView {
 
 	fun takePicture()
 
-	fun showPicture(imageBytes: ByteArray)
+	fun showPicture(picture: File)
 
 	fun showConfirmPhotoView()
 

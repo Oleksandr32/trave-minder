@@ -55,5 +55,10 @@
 		android:id="@+id/createCameraNoteFragment"
 		android:name="com.oleksandrlysun.traveminder.presentation.screens.camera.CreateCameraNoteFragment"
 		android:label="CameraTetsFragment"
-		tools:layout="@layout/fragment_create_camera_note" />
+		tools:layout="@layout/fragment_create_camera_note">
+
+		<argument
+			android:name="picturePath"
+			app:argType="string" />
+	</fragment>
 </navigation>

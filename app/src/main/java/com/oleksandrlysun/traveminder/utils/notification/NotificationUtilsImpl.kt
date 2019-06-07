@@ -32,8 +32,10 @@ class NotificationUtilsImpl @Inject constructor(private val context: Context) : 
 			action = NotificationPublisher.NOTIFICATION_ACTION
 		}
 
-		val pendingIntent = PendingIntent.getBroadcast(context, request.id,
-				notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+		val pendingIntent = PendingIntent.getBroadcast(context,
+				request.id,
+				notificationIntent,
+				PendingIntent.FLAG_UPDATE_CURRENT)
 
 		val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 		alarmManager.set(AlarmManager.RTC_WAKEUP, request.triggerAtMillis, pendingIntent)

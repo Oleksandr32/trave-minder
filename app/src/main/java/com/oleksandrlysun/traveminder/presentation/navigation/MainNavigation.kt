@@ -10,7 +10,7 @@ interface MainNavigation {
 
 	fun tabsToCamera()
 
-	fun cameraToCreateCameraNote()
+	fun cameraToCreateCameraNote(picturePath: String)
 
 	fun backToTabs()
 

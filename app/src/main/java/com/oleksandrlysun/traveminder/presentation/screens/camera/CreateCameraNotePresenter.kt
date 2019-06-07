@@ -1,21 +1,29 @@
 package com.oleksandrlysun.traveminder.presentation.screens.camera
 
 import com.oleksandrlysun.traveminder.R
+import com.oleksandrlysun.traveminder.domain.models.CameraNote
+import com.oleksandrlysun.traveminder.domain.repositories.CameraNoteRepository
 import com.oleksandrlysun.traveminder.presentation.di.scope.FragmentScope
 import com.oleksandrlysun.traveminder.presentation.navigation.MainNavigation
+import com.oleksandrlysun.traveminder.receivers.notification.NotificationRequest
+import com.oleksandrlysun.traveminder.utils.notification.NotificationUtils
+import java.io.File
 import java.util.Date
 import javax.inject.Inject
 
 @FragmentScope
 class CreateCameraNotePresenter @Inject constructor(private val view: CreateCameraNoteView,
-                                                    private val state: CameraFlowState,
-                                                    private val navigation: MainNavigation) {
+                                                    private val navigation: MainNavigation,
+                                                    private val repository: CameraNoteRepository,
+                                                    private val notificationUtils: NotificationUtils) {
 
+	private var picture: File? = null
 	private var date: Date? = null
 	private var alarmDate: Date? = null
 
-	fun onViewCreated() {
-		view.setPicture(state.picture)
+	fun onViewCreated(picturePath: String) {
+		picture = File(picturePath)
+		view.setPicture(picture)
 	}
 
 	fun addField(field: NoteField) {
@@ -40,11 +48,28 @@ class CreateCameraNotePresenter @Inject constructor(private val view: CreateCame
 		view.setAlarmDate(date)
 	}
 
-	fun saveNote(title: String) {
+	fun saveNote(title: String, tags: List<String>, description: String?) {
 		if (title.isEmpty()) {
 			view.setTitleError(R.string.title_error)
-		} else {
+			return
+		}
+
+		try {
+			val note = CameraNote(
+					title = title,
+					tags = tags.takeIf { it.isNotEmpty() },
+					description = description,
+					date = date,
+					picturePath = picture!!.absolutePath)
+			repository.add(note)
+
+			alarmDate?.let {
+				val request = NotificationRequest(System.currentTimeMillis().toInt(), title, description, it.time)
+				notificationUtils.scheduleNotification(request)
+			}
 			navigation.backToTabs()
+		} catch (throwable: Throwable) {
+			throwable.printStackTrace()
 		}
 	}
 }

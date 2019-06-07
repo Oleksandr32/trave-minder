@@ -67,6 +67,7 @@
 				</com.google.android.material.textfield.TextInputLayout>
 
 				<com.oleksandrlysun.traveminder.presentation.views.TagsView
+					android:id="@+id/tags_view"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="8dp"
@@ -82,6 +83,7 @@
 					app:counterMaxLength="255">
 
 					<com.google.android.material.textfield.TextInputEditText
+						android:id="@+id/et_description"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:hint="@string/hint_description"
