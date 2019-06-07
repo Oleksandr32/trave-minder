@@ -105,12 +105,11 @@ class CameraFragment : Fragment(), CameraView {
 	}
 
 	override fun takePicture() {
-		val file = File(activity?.externalMediaDirs?.first(), "${System.currentTimeMillis()}.jpg")
-		imageCapture?.takePicture(file) { imageBytes -> presenter.onPictureTaken(imageBytes) }
+		imageCapture?.takePicture(activity?.createFile()) { presenter.onPictureTaken(it) }
 	}
 
-	override fun showPicture(imageBytes: ByteArray) {
-		photoPreviewImageView.setImageBitmap(imageBytes.toBitmap().rotate(90f))
+	override fun showPicture(picture: File) {
+		photoPreviewImageView.setImageBitmap(picture.toBitmap().rotate(90f))
 	}
 
 	override fun showConfirmPhotoView() {
@@ -162,10 +161,10 @@ class CameraFragment : Fragment(), CameraView {
 		viewFinder.setTransform(matrix)
 	}
 
-	private fun ImageCapture?.takePicture(file: File?, onCaptureSuccess: (ByteArray) -> Unit) {
+	private fun ImageCapture?.takePicture(file: File?, onCaptureSuccess: (File) -> Unit) {
 		this?.takePicture(file, object : ImageCapture.OnImageSavedListener {
 			override fun onImageSaved(file: File) {
-				onCaptureSuccess(file.readBytes())
+				onCaptureSuccess(file)
 			}
 
 			override fun onError(useCaseError: ImageCapture.UseCaseError, message: String, cause: Throwable?) {

@@ -5,7 +5,7 @@ import android.os.Parcelable
 
 data class NotificationRequest(val id: Int,
                                val title: String,
-                               val content: String,
+                               val content: String?,
                                val triggerAtMillis: Long) : Parcelable {
 
 	constructor(parcel: Parcel) : this(

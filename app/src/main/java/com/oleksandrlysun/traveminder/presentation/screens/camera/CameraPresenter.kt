@@ -3,17 +3,20 @@ package com.oleksandrlysun.traveminder.presentation.screens.camera
 import com.oleksandrlysun.traveminder.presentation.di.scope.FragmentScope
 import com.oleksandrlysun.traveminder.presentation.navigation.MainNavigation
 import com.oleksandrlysun.traveminder.utils.PermissionManager
+import java.io.File
 import javax.inject.Inject
 
 @FragmentScope
 class CameraPresenter @Inject constructor(
 		private val view: CameraView,
-		private val state: CameraFlowState,
 		private val navigation: MainNavigation,
 		private val permissionManager: PermissionManager
 ) {
 
+	private var picture: File? = null
+
 	fun onViewCreated() {
+		clearPicture()
 		if (permissionManager.isCameraPermissionGranted()) {
 			view.startCamera()
 		} else {
@@ -32,18 +35,24 @@ class CameraPresenter @Inject constructor(
 	}
 
 	fun applyPicture() {
-		navigation.cameraToCreateCameraNote()
+		navigation.cameraToCreateCameraNote(picture!!.absolutePath)
 	}
 
 	fun cancelPicture() {
+		clearPicture()
 		view.hideConfirmPhotoView()
 		view.setCaptureButtonEnabled(true)
 	}
 
-	fun onPictureTaken(imageBytes: ByteArray) {
-		state.picture = imageBytes
+	fun onPictureTaken(picture: File) {
+		this.picture = picture
 		view.setLoading(false)
 		view.showConfirmPhotoView()
-		view.showPicture(imageBytes)
+		view.showPicture(picture)
+	}
+
+	private fun clearPicture() {
+		picture?.delete()
+		picture = null
 	}
 }
