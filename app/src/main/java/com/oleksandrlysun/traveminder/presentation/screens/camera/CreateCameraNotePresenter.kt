@@ -3,6 +3,7 @@ package com.oleksandrlysun.traveminder.presentation.screens.camera
 import com.oleksandrlysun.traveminder.R
 import com.oleksandrlysun.traveminder.domain.models.CameraNote
 import com.oleksandrlysun.traveminder.domain.repositories.CameraNoteRepository
+import com.oleksandrlysun.traveminder.presentation.base.Presenter
 import com.oleksandrlysun.traveminder.presentation.di.scope.FragmentScope
 import com.oleksandrlysun.traveminder.presentation.navigation.MainNavigation
 import com.oleksandrlysun.traveminder.receivers.notification.NotificationRequest
@@ -12,16 +13,17 @@ import java.util.Date
 import javax.inject.Inject
 
 @FragmentScope
-class CreateCameraNotePresenter @Inject constructor(private val view: CreateCameraNoteView,
+class CreateCameraNotePresenter @Inject constructor(view: CreateCameraNoteView,
                                                     private val navigation: MainNavigation,
                                                     private val repository: CameraNoteRepository,
-                                                    private val notificationUtils: NotificationUtils) {
+                                                    private val notificationUtils: NotificationUtils)
+	: Presenter<CreateCameraNoteView>(view) {
 
 	private var picture: File? = null
 	private var date: Date? = null
 	private var alarmDate: Date? = null
 
-	fun onViewCreated(picturePath: String) {
+	fun consumeArgs(picturePath: String) {
 		picture = File(picturePath)
 		view.setPicture(picture)
 	}
