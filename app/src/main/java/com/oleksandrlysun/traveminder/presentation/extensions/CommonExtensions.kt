@@ -3,11 +3,13 @@ package com.oleksandrlysun.traveminder.presentation.extensions
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
 
-fun ByteArray.toBitmap(): Bitmap {
-	return BitmapFactory.decodeByteArray(this, 0, size)
+fun File.toBitmap(): Bitmap {
+	val imageBytes = readBytes()
+	return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
 }
 
 fun Bitmap.rotate(degrees: Float): Bitmap {

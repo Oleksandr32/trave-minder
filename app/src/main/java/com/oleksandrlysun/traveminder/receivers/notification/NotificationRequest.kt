@@ -1,11 +1,11 @@
-package com.oleksandrlysun.traveminder.services.notification
+package com.oleksandrlysun.traveminder.receivers.notification
 
 import android.os.Parcel
 import android.os.Parcelable
 
 data class NotificationRequest(val id: Int,
                                val title: String,
-                               val content: String,
+                               val content: String?,
                                val triggerAtMillis: Long) : Parcelable {
 
 	constructor(parcel: Parcel) : this(

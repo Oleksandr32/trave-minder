@@ -1,11 +1,13 @@
 package com.oleksandrlysun.traveminder.presentation.screens.camera
 
 import androidx.annotation.StringRes
+import com.oleksandrlysun.traveminder.presentation.base.BaseView
+import java.io.File
 import java.util.Date
 
-interface CreateCameraNoteView {
+interface CreateCameraNoteView : BaseView {
 
-	fun setPicture(picture: ByteArray?)
+	fun setPicture(picture: File?)
 
 	fun setFieldVisibility(field: NoteField, visible: Boolean)
 

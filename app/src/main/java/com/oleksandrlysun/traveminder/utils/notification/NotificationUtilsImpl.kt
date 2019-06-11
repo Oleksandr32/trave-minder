@@ -7,8 +7,8 @@ import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.oleksandrlysun.traveminder.R
-import com.oleksandrlysun.traveminder.services.notification.NotificationPublisher
-import com.oleksandrlysun.traveminder.services.notification.NotificationRequest
+import com.oleksandrlysun.traveminder.receivers.notification.NotificationPublisher
+import com.oleksandrlysun.traveminder.receivers.notification.NotificationRequest
 import com.oleksandrlysun.traveminder.utils.ParcelableUtils
 import javax.inject.Inject
 
@@ -32,8 +32,10 @@ class NotificationUtilsImpl @Inject constructor(private val context: Context) : 
 			action = NotificationPublisher.NOTIFICATION_ACTION
 		}
 
-		val pendingIntent = PendingIntent.getBroadcast(context, request.id,
-				notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+		val pendingIntent = PendingIntent.getBroadcast(context,
+				request.id,
+				notificationIntent,
+				PendingIntent.FLAG_UPDATE_CURRENT)
 
 		val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 		alarmManager.set(AlarmManager.RTC_WAKEUP, request.triggerAtMillis, pendingIntent)
