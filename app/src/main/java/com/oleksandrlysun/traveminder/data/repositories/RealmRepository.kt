@@ -7,7 +7,7 @@ import io.realm.RealmModel
 
 abstract class RealmRepository<R : RealmModel, T>(private val mapper: EntityMapper<R, T>) : Repository<T> {
 
-	override fun add(entity: T) {
+	override suspend fun add(entity: T) {
 		Realm.getDefaultInstance().use { realm ->
 			realm.executeTransaction { r ->
 				val model = mapper.mapToRealmModel(entity)
@@ -16,15 +16,15 @@ abstract class RealmRepository<R : RealmModel, T>(private val mapper: EntityMapp
 		}
 	}
 
-	override fun delete(id: String) {
+	override suspend fun delete(id: String) {
 		TODO()
 	}
 
-	override fun get(id: String): T {
+	override suspend fun get(id: String): T {
 		TODO()
 	}
 
-	override fun getAll(): List<T> {
+	override suspend fun getAll(): List<T> {
 		TODO()
 	}
 }
