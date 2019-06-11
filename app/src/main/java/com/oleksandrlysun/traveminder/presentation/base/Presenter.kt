@@ -18,7 +18,7 @@ abstract class Presenter<T : BaseView>(protected val view: T) {
 		job.cancel()
 	}
 
-	protected fun launchWithHandler(block: () -> Unit) {
+	protected fun launchWithHandler(block: suspend () -> Unit) {
 		coroutineScope.launch {
 			try {
 				block()
