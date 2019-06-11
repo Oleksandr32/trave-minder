@@ -1,6 +1,7 @@
 package com.oleksandrlysun.traveminder.presentation.screens.camera
 
 import com.oleksandrlysun.traveminder.R
+import com.oleksandrlysun.traveminder.domain.interactors.StorageInteractor
 import com.oleksandrlysun.traveminder.domain.models.CameraNote
 import com.oleksandrlysun.traveminder.domain.repositories.CameraNoteRepository
 import com.oleksandrlysun.traveminder.presentation.base.Presenter
@@ -15,7 +16,7 @@ import javax.inject.Inject
 @FragmentScope
 class CreateCameraNotePresenter @Inject constructor(view: CreateCameraNoteView,
                                                     private val navigation: MainNavigation,
-                                                    private val repository: CameraNoteRepository,
+                                                    private val storageInteractor: StorageInteractor,
                                                     private val notificationUtils: NotificationUtils)
 	: Presenter<CreateCameraNoteView>(view) {
 
@@ -56,22 +57,24 @@ class CreateCameraNotePresenter @Inject constructor(view: CreateCameraNoteView,
 			return
 		}
 
-		try {
-			val note = CameraNote(
-					title = title,
-					tags = tags.takeIf { it.isNotEmpty() },
-					description = description,
-					date = date,
-					picturePath = picture!!.absolutePath)
-			repository.add(note)
+		launchWithHandler {
+			try {
+				val note = CameraNote(
+						title = title,
+						tags = tags.takeIf { it.isNotEmpty() },
+						description = description,
+						date = date,
+						picturePath = picture!!.absolutePath)
+				storageInteractor.add(note)
 
-			alarmDate?.let {
-				val request = NotificationRequest(System.currentTimeMillis().toInt(), title, description, it.time)
-				notificationUtils.scheduleNotification(request)
+				alarmDate?.let {
+					val request = NotificationRequest(System.currentTimeMillis().toInt(), title, description, it.time)
+					notificationUtils.scheduleNotification(request)
+				}
+				navigation.backToTabs()
+			} catch (throwable: Throwable) {
+				throwable.printStackTrace()
 			}
-			navigation.backToTabs()
-		} catch (throwable: Throwable) {
-			throwable.printStackTrace()
 		}
 	}
 }

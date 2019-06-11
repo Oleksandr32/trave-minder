@@ -2,11 +2,11 @@ package com.oleksandrlysun.traveminder.domain.repositories
 
 interface Repository<Entity> {
 
-	fun add(entity: Entity)
+	suspend fun add(entity: Entity)
 
-	fun delete(id: String)
+	suspend fun delete(id: String)
 
-	fun get(id: String): Entity
+	suspend fun get(id: String): Entity
 
-	fun getAll(): List<Entity>
+	suspend fun getAll(): List<Entity>
 }

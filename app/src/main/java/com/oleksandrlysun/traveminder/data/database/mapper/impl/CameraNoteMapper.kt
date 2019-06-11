@@ -2,10 +2,8 @@ package com.oleksandrlysun.traveminder.data.database.mapper.impl
 
 import com.oleksandrlysun.traveminder.data.database.mapper.EntityMapper
 import com.oleksandrlysun.traveminder.data.database.model.RealmCameraNote
-import com.oleksandrlysun.traveminder.data.utils.DateUtil
 import com.oleksandrlysun.traveminder.data.utils.toRealmList
 import com.oleksandrlysun.traveminder.domain.models.CameraNote
-import java.io.File
 
 class CameraNoteMapper : EntityMapper<RealmCameraNote, CameraNote> {
 
@@ -15,7 +13,7 @@ class CameraNoteMapper : EntityMapper<RealmCameraNote, CameraNote> {
 				realmModel.title,
 				realmModel.tags?.toList(),
 				realmModel.description,
-				realmModel.date?.let { DateUtil.parseDate(it) },
+				realmModel.date,
 				realmModel.picturePath
 		)
 	}
@@ -26,7 +24,7 @@ class CameraNoteMapper : EntityMapper<RealmCameraNote, CameraNote> {
 				entity.title,
 				entity.tags?.toRealmList(),
 				entity.description,
-				entity.date?.let { DateUtil.formatDate(it) },
+				entity.date,
 				entity.picturePath
 		)
 	}
