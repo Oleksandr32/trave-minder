@@ -15,6 +15,10 @@ class StorageInteractorImpl(private val cameraNoteRepository: CameraNoteReposito
 			else -> throw IllegalArgumentException("Unknown entity type: ${entity::class}")
 		}
 
-		withContext(Dispatchers.IO) { repository.add(entity) }
+		withContext(Dispatchers.IO) { cameraNoteRepository.add(entity) }
+	}
+
+	override suspend fun getAll() = withContext(Dispatchers.IO) {
+		return@withContext cameraNoteRepository.getAll()
 	}
 }

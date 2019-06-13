@@ -7,5 +7,5 @@ import com.oleksandrlysun.traveminder.domain.models.CameraNote
 import com.oleksandrlysun.traveminder.domain.repositories.CameraNoteRepository
 
 class CameraNoteRepositoryImpl(mapper: CameraNoteMapper) :
-		RealmRepository<RealmCameraNote, CameraNote>(mapper),
+		RealmRepository<RealmCameraNote, CameraNote>(RealmCameraNote::class.java, mapper),
 		CameraNoteRepository
