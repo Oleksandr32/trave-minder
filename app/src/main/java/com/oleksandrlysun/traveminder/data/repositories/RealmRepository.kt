@@ -1,11 +1,14 @@
 package com.oleksandrlysun.traveminder.data.repositories
 
 import com.oleksandrlysun.traveminder.data.database.mapper.EntityMapper
+import com.oleksandrlysun.traveminder.data.database.model.RealmCameraNote
+import com.oleksandrlysun.traveminder.domain.models.CameraNote
 import com.oleksandrlysun.traveminder.domain.repositories.Repository
 import io.realm.Realm
 import io.realm.RealmModel
 
-abstract class RealmRepository<R : RealmModel, T>(private val mapper: EntityMapper<R, T>) : Repository<T> {
+abstract class RealmRepository<R : RealmModel, T>(protected val classType: Class<R>,
+                                                  protected val mapper: EntityMapper<R, T>) : Repository<T> {
 
 	override suspend fun add(entity: T) {
 		Realm.getDefaultInstance().use { realm ->
@@ -25,6 +28,14 @@ abstract class RealmRepository<R : RealmModel, T>(private val mapper: EntityMapp
 	}
 
 	override suspend fun getAll(): List<T> {
-		TODO()
+		val realm = Realm.getDefaultInstance()
+
+		val entities = realm
+				.where(classType)
+				.findAll()
+				.map { mapper.mapToEntity(it) }
+		realm.close()
+
+		return entities
 	}
 }

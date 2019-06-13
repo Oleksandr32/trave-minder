@@ -21,3 +21,7 @@ fun Bitmap.rotate(degrees: Float): Bitmap {
 fun Date.toFormat(format: String = "dd MMMM yyyy"): String {
 	return SimpleDateFormat(format).format(this)
 }
+
+fun String.ellipse(limit: Int = 15): String {
+	return if (length >= limit) "${substring(0, limit)}..." else this
+}

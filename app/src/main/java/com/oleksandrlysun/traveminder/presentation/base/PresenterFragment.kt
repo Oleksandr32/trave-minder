@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
 import androidx.fragment.app.Fragment
+import com.oleksandrlysun.traveminder.R
+import com.oleksandrlysun.traveminder.presentation.extensions.mainActivity
 import dagger.android.support.AndroidSupportInjection
 
 abstract class PresenterFragment : Fragment(), BaseView {
@@ -32,5 +34,11 @@ abstract class PresenterFragment : Fragment(), BaseView {
 
 	@CallSuper
 	protected open fun setupUI() {
+		setupToolbar()
+	}
+
+	@CallSuper
+	protected open fun setupToolbar() {
+		mainActivity?.setSupportActionBar(view?.findViewById(R.id.toolbar))
 	}
 }

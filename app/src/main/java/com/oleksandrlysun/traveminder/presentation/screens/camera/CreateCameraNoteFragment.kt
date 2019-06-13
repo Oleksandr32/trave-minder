@@ -42,9 +42,6 @@ class CreateCameraNoteFragment : PresenterFragment(), CreateCameraNoteView {
 
 	override fun setupUI() {
 		super.setupUI()
-		mainActivity?.setSupportActionBar(view?.findViewById(R.id.toolbar))
-		mainActivity?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
 		addDateButton.setOnClickListener { presenter.addField(NoteField.DATE) }
 		addAlarmDateButton.setOnClickListener { presenter.addField(NoteField.ALARM_DATE) }
 		dateInput.setOnClickListener { presenter.onDateInputClick() }
@@ -52,6 +49,11 @@ class CreateCameraNoteFragment : PresenterFragment(), CreateCameraNoteView {
 		saveButton.setOnClickListener { saveNote() }
 
 		presenter.consumeArgs(args.picturePath)
+	}
+
+	override fun setupToolbar() {
+		super.setupToolbar()
+		mainActivity?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
 	}
 
 	override fun setPicture(picture: File?) {

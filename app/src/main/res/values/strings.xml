@@ -25,4 +25,5 @@
 	<string name="create_note">Create Note</string>
 	<string name="title_error">Title is required</string>
 	<string name="alarm_date_format">dd MMMM yyyy hh:mm</string>
+	<string name="loading_notes">Loading notes…</string>
 </resources>
