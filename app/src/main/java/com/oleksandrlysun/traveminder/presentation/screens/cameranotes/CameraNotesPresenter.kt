@@ -3,11 +3,13 @@ package com.oleksandrlysun.traveminder.presentation.screens.cameranotes
 import com.oleksandrlysun.traveminder.domain.interactors.StorageInteractor
 import com.oleksandrlysun.traveminder.domain.models.CameraNote
 import com.oleksandrlysun.traveminder.presentation.base.Presenter
+import com.oleksandrlysun.traveminder.presentation.di.scope.FragmentScope
 import com.oleksandrlysun.traveminder.presentation.extensions.contains
 import com.oleksandrlysun.traveminder.presentation.extensions.toFormat
 import com.oleksandrlysun.traveminder.presentation.navigation.MainNavigation
 import javax.inject.Inject
 
+@FragmentScope
 class CameraNotesPresenter @Inject constructor(view: CameraNotesView,
                                                private val navigation: MainNavigation,
                                                private val storageInteractor: StorageInteractor)

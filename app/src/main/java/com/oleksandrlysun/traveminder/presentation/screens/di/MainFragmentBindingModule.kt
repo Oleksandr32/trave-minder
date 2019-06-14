@@ -9,6 +9,8 @@ import com.oleksandrlysun.traveminder.presentation.screens.cameranotes.di.Camera
 import com.oleksandrlysun.traveminder.presentation.screens.tabs.TabsFragment
 import com.oleksandrlysun.traveminder.presentation.screens.home.HomeFragment
 import com.oleksandrlysun.traveminder.presentation.screens.home.di.HomeModule
+import com.oleksandrlysun.traveminder.presentation.screens.maps.MapsFragment
+import com.oleksandrlysun.traveminder.presentation.screens.maps.di.MapsModule
 import com.oleksandrlysun.traveminder.presentation.screens.permission.PermissionFragment
 import com.oleksandrlysun.traveminder.presentation.screens.tabs.di.TabsModule
 import com.oleksandrlysun.traveminder.presentation.screens.welcome.WelcomeFragment
@@ -46,4 +48,8 @@ interface MainFragmentBindingModule {
 	@FragmentScope
 	@ContributesAndroidInjector(modules = [CameraModule::class])
 	fun contributeCreateCameraNoteFragmentInjector(): CreateCameraNoteFragment
+
+	@FragmentScope
+	@ContributesAndroidInjector(modules = [MapsModule::class])
+	fun contributeMapsFragmentInjector(): MapsFragment
 }
