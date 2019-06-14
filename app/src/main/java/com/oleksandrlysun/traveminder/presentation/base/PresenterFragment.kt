@@ -25,6 +25,16 @@ abstract class PresenterFragment : Fragment(), BaseView {
 		getPresenters().forEach { it.onViewCreated() }
 	}
 
+	override fun onResume() {
+		super.onResume()
+		getPresenters().forEach { it.onResume() }
+	}
+
+	override fun onPause() {
+		super.onPause()
+		getPresenters().forEach { it.onPause() }
+	}
+
 	override fun onDestroyView() {
 		getPresenters().forEach { it.onDestroyView() }
 		super.onDestroyView()
