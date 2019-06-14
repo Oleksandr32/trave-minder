@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.oleksandrlysun.traveminder.R
 import com.oleksandrlysun.traveminder.presentation.extensions.mainActivity
 import com.oleksandrlysun.traveminder.presentation.navigation.MainNavigation
@@ -25,6 +26,8 @@ class PermissionFragment : Fragment() {
 
 	@Inject
 	lateinit var permissionResultLiveEvent: PermissionResultLiveEvent
+
+	private val args: PermissionFragmentArgs by navArgs()
 
 	override fun onAttach(context: Context) {
 		AndroidSupportInjection.inject(this)
@@ -57,5 +60,6 @@ class PermissionFragment : Fragment() {
 	companion object {
 
 		private const val RC_CAMERA_PERMISSION = 0
+		private const val RC_LOCATION_PERMISSION = 1
 	}
 }

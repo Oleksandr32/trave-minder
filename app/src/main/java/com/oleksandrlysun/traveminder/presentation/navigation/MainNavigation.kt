@@ -14,5 +14,5 @@ interface MainNavigation {
 
 	fun backToTabs()
 
-	fun toPermission()
+	fun toPermission(permission: Int)
 }
