@@ -22,4 +22,12 @@ class PermissionManager @Inject constructor(private val activity: MainActivity) 
 				&& grantResults[0] == PERMISSION_GRANTED
 				&& requestCode == resultCode
 	}
+
+	fun isLocationPermissionGranted(): Boolean {
+		return ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PERMISSION_GRANTED
+	}
+
+	fun requestLocationPermission(requestCode: Int) {
+		ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), requestCode)
+	}
 }

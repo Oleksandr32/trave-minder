@@ -4,7 +4,7 @@ import androidx.navigation.NavController
 import com.oleksandrlysun.traveminder.R
 import com.oleksandrlysun.traveminder.presentation.navigation.MainNavigation
 import com.oleksandrlysun.traveminder.presentation.screens.camera.CameraFragmentDirections
-import com.oleksandrlysun.traveminder.presentation.screens.camera.CreateCameraNoteFragmentDirections
+import com.oleksandrlysun.traveminder.presentation.screens.permission.PermissionFragmentDirections
 
 class MainNavigationImpl(private val navController: NavController) : MainNavigation {
 
@@ -33,7 +33,8 @@ class MainNavigationImpl(private val navController: NavController) : MainNavigat
 		navController.popBackStack(R.id.tabsFragment, false)
 	}
 
-	override fun toPermission() {
-		navController.navigate(R.id.action_to_permissionFragment)
+	override fun toPermission(permission: Int) {
+		val action = PermissionFragmentDirections.actionToPermissionFragment(permission)
+		navController.navigate(action)
 	}
 }

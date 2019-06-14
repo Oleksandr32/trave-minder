@@ -2,6 +2,7 @@ package com.oleksandrlysun.traveminder.presentation.screens.camera
 
 import com.oleksandrlysun.traveminder.presentation.di.scope.FragmentScope
 import com.oleksandrlysun.traveminder.presentation.navigation.MainNavigation
+import com.oleksandrlysun.traveminder.presentation.screens.permission.CAMERA_PERMISSION
 import com.oleksandrlysun.traveminder.utils.PermissionManager
 import java.io.File
 import javax.inject.Inject
@@ -20,7 +21,7 @@ class CameraPresenter @Inject constructor(
 		if (permissionManager.isCameraPermissionGranted()) {
 			view.startCamera()
 		} else {
-			navigation.toPermission()
+			navigation.toPermission(CAMERA_PERMISSION)
 		}
 	}
 

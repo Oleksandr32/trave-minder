@@ -3,6 +3,8 @@ package com.oleksandrlysun.traveminder.presentation.extensions
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
+import com.google.android.gms.maps.model.LatLng
+import com.oleksandrlysun.traveminder.domain.models.Location
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -29,3 +31,5 @@ fun String.ellipse(limit: Int = 15): String {
 fun String?.contains(query: String): Boolean {
 	return this?.contains(query, ignoreCase = true) ?: false
 }
+
+fun Location.toLatLng() = LatLng(latitude, longitude)

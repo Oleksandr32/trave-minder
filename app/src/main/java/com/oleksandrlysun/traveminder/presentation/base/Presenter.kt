@@ -11,7 +11,11 @@ abstract class Presenter<T : BaseView>(protected val view: T) {
 	private val job = Job()
 	private val coroutineScope = CoroutineScope(job + Dispatchers.Main)
 
+	open fun onResume() {}
+
 	open fun onViewCreated() {}
+
+	open fun onPause() {}
 
 	@CallSuper
 	open fun onDestroyView() {

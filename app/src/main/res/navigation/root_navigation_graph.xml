@@ -35,7 +35,12 @@
 		android:id="@+id/permissionFragment"
 		android:name="com.oleksandrlysun.traveminder.presentation.screens.permission.PermissionFragment"
 		android:label="PermissionFragment"
-		tools:layout="@layout/fragment_permission" />
+		tools:layout="@layout/fragment_permission">
+
+		<argument
+			android:name="action"
+			app:argType="integer" />
+	</fragment>
 
 	<action
 		android:id="@+id/action_to_permissionFragment"
